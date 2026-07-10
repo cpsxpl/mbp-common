@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.mbp.eng</groupId>
-    <artifactId>common.util</artifactId>
+    <artifactId>util</artifactId>
     <version>1.0.0-SNAPSHOT</version>
 
     <properties>
@@ -17,7 +17,7 @@
         <java.version>1.8</java.version>
         <!--#####################华丽的分割线_end#######################-->
         <spring.boot.version>2.7.3</spring.boot.version>
-        <mbpeng.error.version>1.0.0-SNAPSHOT</mbpeng.error.version>
+        <mbp.error.version>1.0.0-SNAPSHOT</mbp.error.version>
         <tika.version>1.18</tika.version>
         <commons.version>1.9.3</commons.version>
         <typesafe.config.version>1.2.1</typesafe.config.version>
@@ -43,8 +43,9 @@
             <dependency>
                 <groupId>com.mbp.eng</groupId>
                 <artifactId>common.error</artifactId>
-                <version>${mbpeng.error.version}</version>
+                <version>${mbp.error.version}</version>
             </dependency>
+
         </dependencies>
     </dependencyManagement>
 
@@ -52,7 +53,7 @@
 
         <dependency>
             <groupId>com.mbp.eng</groupId>
-            <artifactId>common.error</artifactId>
+            <artifactId>error</artifactId>
         </dependency>
 
         <!-- apache_http_start -->
@@ -203,6 +204,12 @@
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.mbp.eng</groupId>
+            <artifactId>error</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+            <scope>compile</scope>
         </dependency>
     </dependencies>
 
