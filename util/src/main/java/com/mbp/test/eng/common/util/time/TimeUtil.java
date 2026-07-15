@@ -1,4 +1,4 @@
-package com.mbp.test.eng.common.util.date;
+package com.mbp.test.eng.common.util.time;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
