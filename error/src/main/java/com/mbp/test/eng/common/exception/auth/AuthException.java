@@ -1,4 +1,4 @@
-package com.mbp.test.eng.common.auth.common;
+package com.mbp.test.eng.common.exception.auth;
 
 public class AuthException extends RuntimeException {
     private final Integer status;

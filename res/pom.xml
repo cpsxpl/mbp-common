@@ -8,7 +8,7 @@
         <version>${revision}</version>
     </parent>
 
-    <artifactId>error</artifactId>
+    <artifactId>res</artifactId>
 
     <properties>
         <!--#####################华丽的分割线_start#####################-->
@@ -43,6 +43,14 @@
     </properties>
 
     <dependencies>
+        <!--模块-工具类相关_start-->
+        <dependency>
+            <groupId>com.mbp.eng</groupId>
+            <artifactId>error</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+        </dependency>
+        <!--模块-工具类相关_end-->
+
         <!-- JSON_start -->
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
@@ -75,4 +83,5 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
+
 </project>

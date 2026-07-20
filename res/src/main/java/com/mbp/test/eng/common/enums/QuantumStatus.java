@@ -1,4 +1,4 @@
-package com.mbp.test.eng.common.util.enums;
+package com.mbp.test.eng.common.enums;
 
 public enum QuantumStatus {
     DEFAULT("-1", "DEFAULT_CREATE"),

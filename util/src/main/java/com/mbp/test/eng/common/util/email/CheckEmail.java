@@ -1,4 +1,4 @@
-package com.mbp.test.eng.common.email;
+package com.mbp.test.eng.common.util.email;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

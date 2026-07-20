@@ -1,4 +1,4 @@
-package com.mbp.test.eng.common.entity;
+package com.mbp.test.eng.common.util.entity;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

@@ -1,4 +1,4 @@
-package com.mbp.test.eng.common.util.code;
+package com.mbp.test.eng.common;
 
 public class QuantumCode {
 

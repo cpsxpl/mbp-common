@@ -1,4 +1,4 @@
-package com.mbp.test.eng.common.auth.common;
+package com.mbp.test.eng.common.auth;
 
 public class Constants {
     public static final String PIN = "pin";

@@ -6,18 +6,20 @@
     <groupId>com.mbp.common</groupId>
     <artifactId>mbp-common</artifactId>
     <packaging>pom</packaging>
-    <version>1.0.0-SNAPSHOT</version>
-
-    <modules>
-        <module>error</module>
-        <module>util</module>
-    </modules>
+    <version>${revision}</version>
 
     <name>${project.artifactId}</name>
     <description>mbp-common</description>
     <url>https://github.com/xxxx</url>
 
+    <modules>
+        <module>error</module>
+        <module>res</module>
+        <module>util</module>
+    </modules>
+
     <properties>
+        <revision>1.0.0-SNAPSHOT</revision>
         <!--#####################华丽的分割线_start#####################-->
         <java.version>1.8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -192,7 +194,7 @@
     </build>
 
     <!-- 使用 huawei / aliyun 的 Maven 源，提升下载速度 -->
-    <repositories>
+    <!--<repositories>
         <repository>
             <id>huaweicloud</id>
             <name>huawei</name>
@@ -203,6 +205,6 @@
             <name>aliyun</name>
             <url>https://maven.aliyun.com/repository/public</url>
         </repository>
-    </repositories>
+    </repositories>-->
 
 </project>
