@@ -46,10 +46,27 @@
         <!--#####################华丽的分割线_end#######################-->
     </properties>
 
-    <!--<dependencyManagement>
+    <dependencyManagement>
         <dependencies>
+            <!--模块-工具类相关_start-->
+            <dependency>
+                <groupId>com.mbp.eng</groupId>
+                <artifactId>error</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.mbp.eng</groupId>
+                <artifactId>res</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.mbp.eng</groupId>
+                <artifactId>util</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <!--模块-工具类相关_end-->
         </dependencies>
-    </dependencyManagement>-->
+    </dependencyManagement>
 
     <build>
         <pluginManagement>
@@ -193,7 +210,7 @@
         </pluginManagement>
     </build>
 
-    <!-- 使用 huawei / aliyun 的 Maven 源，提升下载速度 -->
+    <!-- 使用 huawei / aliyun 的 Maven 源,提升下载速度 -->
     <!--<repositories>
         <repository>
             <id>huaweicloud</id>
