@@ -8,6 +8,7 @@
         <version>${revision}</version>
     </parent>
 
+    <packaging>jar</packaging>
     <artifactId>res</artifactId>
 
     <properties>
@@ -47,7 +48,6 @@
         <dependency>
             <groupId>com.mbp.eng</groupId>
             <artifactId>error</artifactId>
-            <version>1.0.0-SNAPSHOT</version>
         </dependency>
         <!--模块-工具类相关_end-->
 
