@@ -50,17 +50,17 @@
         <dependencies>
             <!--模块-工具类相关_start-->
             <dependency>
-                <groupId>com.mbp.eng</groupId>
+                <groupId>com.mbp.common</groupId>
                 <artifactId>error</artifactId>
                 <version>${revision}</version>
             </dependency>
             <dependency>
-                <groupId>com.mbp.eng</groupId>
+                <groupId>com.mbp.common</groupId>
                 <artifactId>res</artifactId>
                 <version>${revision}</version>
             </dependency>
             <dependency>
-                <groupId>com.mbp.eng</groupId>
+                <groupId>com.mbp.common</groupId>
                 <artifactId>util</artifactId>
                 <version>${revision}</version>
             </dependency>

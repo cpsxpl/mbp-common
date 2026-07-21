@@ -46,7 +46,7 @@
     <dependencies>
         <!--模块-工具类相关_start-->
         <dependency>
-            <groupId>com.mbp.eng</groupId>
+            <groupId>com.mbp.common</groupId>
             <artifactId>error</artifactId>
         </dependency>
         <!--模块-工具类相关_end-->

@@ -1,7 +1,6 @@
 package com.mbp.eng.framework.common.utils;
 
-
-import com.mbp.test.eng.common.Constants;
+import com.mbp.eng.framework.common.Constants;
 
 import java.util.Map;
 import java.util.Map.Entry;

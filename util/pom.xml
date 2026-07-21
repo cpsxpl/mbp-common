@@ -68,7 +68,7 @@
     <dependencies>
         <!--模块_start-->
         <dependency>
-            <groupId>com.mbp.eng</groupId>
+            <groupId>com.mbp.common</groupId>
             <artifactId>res</artifactId>
         </dependency>
         <!--模块_start-->

@@ -2,7 +2,8 @@ package com.mbp.eng.framework.common;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
-import com.mbp.test.eng.common.exception.ErrorStatus;
+import com.mbp.eng.framework.common.exception.ErrorStatus;
+
 
 import java.io.Serializable;
 
