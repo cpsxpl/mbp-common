@@ -61,6 +61,7 @@ public class FtpUtil {
             session.disconnect();
         }
     }
+
     /**
      * This class should preserve.
      *
@@ -81,7 +82,7 @@ public class FtpUtil {
         try {
             int reply;
             ftpClient.connect(hostname, port);
-            //如果采用默认端口，可以使用ftp.connect(url)的方式直接连接FTP服务器
+            //如果采用默认端口,可以使用ftp.connect(url)的方式直接连接FTP服务器
             //登录
             ftpClient.login(username, password);
             reply = ftpClient.getReplyCode();
@@ -141,7 +142,7 @@ public class FtpUtil {
         try {
             int reply;
             ftpClient.connect(hostname, port);
-            // 如果采用默认端口，可以使用ftp.connect(url)的方式直接连接FTP服务器
+            // 如果采用默认端口,可以使用ftp.connect(url)的方式直接连接FTP服务器
             // 登录
             ftpClient.login(username, password);
             reply = ftpClient.getReplyCode();

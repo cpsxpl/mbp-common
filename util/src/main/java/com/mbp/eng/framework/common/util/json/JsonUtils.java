@@ -10,8 +10,8 @@ import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
-import com.fasterxml.jackson.databind.module.SimpleModule;
 import com.fasterxml.jackson.databind.json.JsonMapper;
+import com.fasterxml.jackson.databind.module.SimpleModule;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.mbp.eng.framework.common.util.json.databind.TimestampLocalDateTimeDeserializer;
 import com.mbp.eng.framework.common.util.json.databind.TimestampLocalDateTimeSerializer;
@@ -31,7 +31,6 @@ import java.util.Map;
  **/
 @Slf4j
 public class JsonUtils {
-
     @Getter
     private static ObjectMapper objectMapper = buildObjectMapper();
 
@@ -51,7 +50,7 @@ public class JsonUtils {
     /**
      * 初始化 objectMapper 属性
      * <p>
-     * 通过这样的方式，使用 Spring 创建的 ObjectMapper Bean
+     * 通过这样的方式,使用 Spring 创建的 ObjectMapper Bean
      *
      * @param objectMapper ObjectMapper 对象
      */
@@ -126,10 +125,10 @@ public class JsonUtils {
 
     /**
      * 将字符串解析成指定类型的对象
-     * 使用 {@link #parseObject(String, Class)} 时，在@JsonTypeInfo(use = JsonTypeInfo.Id.CLASS) 的场景下，
-     * 如果 text 没有 class 属性，则会报错。此时，使用这个方法，可以解决。
+     * 使用 {@link #parseObject(String, Class)} 时,在@JsonTypeInfo(use = JsonTypeInfo.Id.CLASS) 的场景下,
+     * 如果 text 没有 class 属性,则会报错。此时,使用这个方法,可以解决。
      *
-     * @param text 字符串
+     * @param text  字符串
      * @param clazz 类型
      * @return 对象
      */
@@ -162,9 +161,9 @@ public class JsonUtils {
     }
 
     /**
-     * 解析 JSON 字符串成指定类型的对象，如果解析失败，则返回 null
+     * 解析 JSON 字符串成指定类型的对象,如果解析失败,则返回 null
      *
-     * @param text 字符串
+     * @param text          字符串
      * @param typeReference 类型引用
      * @return 指定类型的对象
      */
@@ -177,7 +176,7 @@ public class JsonUtils {
     }
 
     /**
-     * 解析 JSON 字符串成 Map，空字符串或解析失败返回 null
+     * 解析 JSON 字符串成 Map,空字符串或解析失败返回 null
      *
      * @param text JSON 字符串
      * @return Map 对象
@@ -187,16 +186,17 @@ public class JsonUtils {
             return null;
         }
         try {
-            return objectMapper.readValue(text, new TypeReference<Map<String, Object>>() {});
+            return objectMapper.readValue(text, new TypeReference<Map<String, Object>>() {
+            });
         } catch (JacksonException e) {
             return null;
         }
     }
 
     /**
-     * 解析 JSON 字符串成指定类型的对象，如果解析失败，则返回 null
+     * 解析 JSON 字符串成指定类型的对象,如果解析失败,则返回 null
      *
-     * @param text 字符串
+     * @param text  字符串
      * @param clazz 类型
      * @return 指定类型的对象
      */
@@ -269,6 +269,7 @@ public class JsonUtils {
 
     /**
      * 判断字符串是否为 JSON 类型的字符串
+     *
      * @param str 字符串
      */
     public static boolean isJsonObject(String str) {
@@ -323,5 +324,4 @@ public class JsonUtils {
         }
         return objectMapper.convertValue(obj, objectMapper.getTypeFactory().constructCollectionType(List.class, clazz));
     }
-
 }

@@ -20,6 +20,7 @@ import java.nio.charset.StandardCharsets;
 public class HttpManager {
     private static final PoolingHttpClientConnectionManager cm;
     private static final RequestConfig conf;
+
     static {
         try {
             cm = new PoolingHttpClientConnectionManager();

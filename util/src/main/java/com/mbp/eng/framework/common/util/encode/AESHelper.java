@@ -98,6 +98,7 @@ public class AESHelper {
     public static final String encrypt(String data) throws Exception {
         return byte2hex(encrypt(data.getBytes(), cryptKey));
     }
+
     public static void main(String[] args) throws Exception {
         Date d = new Date();
         System.out.println(d.getTime());

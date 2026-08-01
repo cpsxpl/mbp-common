@@ -49,6 +49,7 @@ public class NumUtil {
         }
         return true;
     }
+
     /**
      * 4 能否转换 检查是否为数字
      *

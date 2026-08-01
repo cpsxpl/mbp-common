@@ -7,6 +7,7 @@ import java.lang.reflect.Field;
 
 public class EntityUtils {
     private static Logger logger = LoggerFactory.getLogger(EntityUtils.class);
+
     /**
      * @param entity    对象
      * @param fieldName 对象中某属性名称

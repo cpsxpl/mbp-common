@@ -13,7 +13,6 @@ public class UrlUtil {
      * URL 解码
      *
      * @return String
-     * @author lifq
      * @date 2015-3-17 下午04:09:51
      */
     public static String getURLDecoderString(String str) throws UnsupportedEncodingException {
@@ -28,7 +27,6 @@ public class UrlUtil {
      * URL 转码
      *
      * @return String
-     * @author lifq
      * @date 2015-3-17 下午04:10:28
      */
     public static String getURLEncoderString(String str) throws UnsupportedEncodingException {
@@ -41,7 +39,6 @@ public class UrlUtil {
 
     /**
      * @return void
-     * @author lifq
      * @date 2015-3-17 下午04:09:16
      */
     public static void main(String[] args) throws UnsupportedEncodingException {

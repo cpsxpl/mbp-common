@@ -36,10 +36,23 @@
         <maven.docencoding>UTF-8</maven.docencoding>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <!--#####################华丽的分割线_end#######################-->
-        <jackson.version>2.13.3</jackson.version>
-        <guava.version>20.0</guava.version>
-        <slf4j.version>1.7.36</slf4j.version>
+        <spring.boot.version>2.7.3</spring.boot.version>
+        <springdoc.version>1.8.0</springdoc.version>
+        <aspectj.version>1.9.7</aspectj.version>
+        <jakarta-servlet.version>4.0.4</jakarta-servlet.version>
+        <opentelemetry.version>1.39.0</opentelemetry.version>
         <lombok.version>1.18.24</lombok.version>
+        <mapstruct.version>1.6.3</mapstruct.version>
+        <guava.version>20.0</guava.version>
+        <jackson.version>2.13.3</jackson.version>
+        <jackson.version.databind>${jackson.version}</jackson.version.databind>
+        <jackson.version.core>${jackson.version}</jackson.version.core>
+        <jackson.version.datatype>${jackson.version}</jackson.version.datatype>
+        <slf4j.version>1.7.36</slf4j.version>
+        <jakarta-validation.version>2.0.2</jakarta-validation.version>
+        <hutool-5.version>5.8.46</hutool-5.version>
+        <transmittable-thread-local.version>2.14.5</transmittable-thread-local.version>
+        <easy-trans.version>3.1.5</easy-trans.version>
         <junit.version>4.13.2</junit.version>
     </properties>
 
@@ -51,25 +64,46 @@
         </dependency>
         <!--模块-工具类相关_end-->
 
-        <!-- JSON_start -->
+        <!-- Spring 核心 -->
+        <!-- 设置为 provided,主要是 PageParam 使用到 -->
         <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-databind</artifactId>
-            <version>${jackson.version}</version>
+            <groupId>org.springdoc</groupId>
+            <artifactId>springdoc-openapi-ui</artifactId>
+            <version>${springdoc.version}</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- 设置为 provided,只有工具类需要使用到 -->
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+            <version>${aspectj.version}</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- 用于生成自定义的 Spring @ConfigurationProperties 配置类的说明文件 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+            <version>${spring.boot.version}</version>
+            <optional>true</optional>
         </dependency>
 
         <dependency>
-            <groupId>com.google.guava</groupId>
-            <artifactId>guava</artifactId>
-            <version>${guava.version}</version>
+            <groupId>jakarta.servlet</groupId>
+            <artifactId>jakarta.servlet-api</artifactId>
+            <version>${jakarta-servlet.version}</version>
+            <scope>provided</scope> <!-- 设置为 provided,只有工具类需要使用到 -->
         </dependency>
 
+        <!-- 监控相关 -->
         <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-api</artifactId>
-            <version>${slf4j.version}</version>
+            <groupId>io.opentelemetry</groupId>
+            <artifactId>opentelemetry-api</artifactId>
+            <version>${opentelemetry.version}</version>
         </dependency>
 
+        <!-- 工具类相关 -->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
@@ -77,11 +111,96 @@
         </dependency>
 
         <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>${junit.version}</version>
+            <groupId>org.mapstruct</groupId>
+            <artifactId>mapstruct</artifactId>
+            <version>${mapstruct.version}</version>
+        </dependency>
+
+        <!-- use mapstruct-jdk8 for Java 8 or higher -->
+        <dependency>
+            <groupId>org.mapstruct</groupId>
+            <artifactId>mapstruct-jdk8</artifactId>
+            <version>${mapstruct.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.mapstruct</groupId>
+            <artifactId>mapstruct-processor</artifactId>
+            <version>${mapstruct.version}</version>
+        </dependency>
+
+        <!-- 设置为 provided,只有工具类需要使用到 -->
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>${guava.version}</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>${jackson.version.databind}</version>
+            <scope>provided</scope> <!-- 设置为 provided,只有工具类需要使用到 -->
+        </dependency>
+
+        <!-- 设置为 provided,只有工具类需要使用到 -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-core</artifactId>
+            <version>${jackson.version.core}</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- 设置为 provided,只有工具类需要使用到 -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.datatype</groupId>
+            <artifactId>jackson-datatype-jsr310</artifactId>
+            <version>${jackson.version.datatype}</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- 设置为 provided,只有工具类需要使用到 -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${slf4j.version}</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- 设置为 provided,主要是 PageParam 使用到 -->
+        <dependency>
+            <groupId>jakarta.validation</groupId>
+            <artifactId>jakarta.validation-api</artifactId>
+            <version>${jakarta-validation.version}</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+            <version>${hutool-5.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>transmittable-thread-local</artifactId>
+            <version>${transmittable-thread-local.version}</version>
+        </dependency>
+
+        <!-- 默认引入的原因,方便 xxx-module-api 包使用 -->
+        <dependency>
+            <groupId>org.dromara</groupId> <!-- VO 数据翻译 -->
+            <artifactId>easy-trans-anno</artifactId>
+            <version>${easy-trans.version}</version>
+        </dependency>
+
+        <!-- Test 测试相关 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <version>${spring.boot.version}</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
-
 </project>

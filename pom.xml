@@ -54,14 +54,16 @@
                 <artifactId>error</artifactId>
                 <version>${revision}</version>
             </dependency>
-            <dependency>
-                <groupId>com.mbp.common</groupId>
-                <artifactId>res</artifactId>
-                <version>${revision}</version>
-            </dependency>
+
             <dependency>
                 <groupId>com.mbp.common</groupId>
                 <artifactId>util</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.mbp.common</groupId>
+                <artifactId>res</artifactId>
                 <version>${revision}</version>
             </dependency>
             <!--模块-工具类相关_end-->

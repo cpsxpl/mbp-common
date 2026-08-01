@@ -35,6 +35,7 @@ public class StrUtil {
         }
         return false;
     }
+
     /**
      * 过滤掉中文
      *
@@ -110,6 +111,7 @@ public class StrUtil {
         matcher.appendTail(stringBuffer);
         return stringBuffer.toString();
     }
+
     /**
      * 将字符串转换成一个InputStream流
      *

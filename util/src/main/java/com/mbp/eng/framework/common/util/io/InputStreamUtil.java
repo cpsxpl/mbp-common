@@ -14,6 +14,7 @@ import java.util.List;
 
 public class InputStreamUtil {
     private static final Logger logger = LoggerFactory.getLogger(InputStreamUtil.class);
+
     /**
      * 将字符串转换成一个InputStream流
      *

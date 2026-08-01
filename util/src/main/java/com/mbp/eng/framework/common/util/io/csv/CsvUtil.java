@@ -33,6 +33,7 @@ public class CsvUtil {
             throw new RuntimeException("RuntimeException occur when try get InputStream from File");
         }
     }
+
     /**
      * 获取一个csv文件行数
      *
@@ -67,6 +68,7 @@ public class CsvUtil {
         parser.parse(inputStream);
         return csvDimension.rowCount;
     }
+
     /**
      * get csv column data
      *
@@ -80,6 +82,7 @@ public class CsvUtil {
         Map<String, List<String>> columnValues = new TreeMap<String, List<String>>(colProcessor.getColumnValuesAsMapOfNames());
         return columnValues;
     }
+
     /**
      * get one column data by index
      *
@@ -99,6 +102,7 @@ public class CsvUtil {
             return new ArrayList<>();
         }
     }
+
     /**
      * get ByteArrayOutputStream file stream by row pojo such as List<Object[]>
      *
@@ -123,6 +127,7 @@ public class CsvUtil {
         writer.writeRowsAndClose(rows);
         return csvResult;
     }
+
     /**
      * write only one column csv file
      *
@@ -136,6 +141,7 @@ public class CsvUtil {
         }
         return writeCsvFileStream(rows);
     }
+
     private static ColumnProcessor getColumnProcessor(InputStream inputStream) {
         CsvParserSettings parserSettings = new CsvParserSettings();
         parserSettings.getFormat().setLineSeparator("\n");

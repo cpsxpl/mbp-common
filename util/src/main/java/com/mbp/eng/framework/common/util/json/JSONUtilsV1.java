@@ -2,7 +2,6 @@ package com.mbp.eng.framework.common.util.json;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.google.gson.Gson;
-
 import org.codehaus.jackson.JsonFactory;
 import org.codehaus.jackson.JsonGenerator;
 import org.codehaus.jackson.JsonParseException;
@@ -40,10 +39,7 @@ public class JSONUtilsV1 {
         MAPPER.setDateFormat(fmt);
     }
 
-
-    private JSONUtilsV1() {
-    }
-
+    private JSONUtilsV1() {}
     public static <T> T deserialize(byte[] value, Class<T> clazz) throws IOException {
         return MAPPER.readValue(value, clazz);
     }
@@ -76,12 +72,12 @@ public class JSONUtilsV1 {
      * 把一个对象转换成json字符串
      *
      * @param obj
-     * @param prettyPrint，设置转换后的json样式<br/> true：可读性强的json串，如：<br/>
+     * @param prettyPrint,设置转换后的json样式<br/> true：可读性强的json串,如：<br/>
      *                                      {<br/>
      *                                      "key1" : "value1",<br/>
      *                                      "key2" : "value2"<br/>
      *                                      }<br/>
-     *                                      fasle：精简的json串，如：<br/>
+     *                                      fasle：精简的json串,如：<br/>
      *                                      {"key1":"value1","key2":"value2"}
      * @return
      */
@@ -101,7 +97,7 @@ public class JSONUtilsV1 {
     }
 
     /**
-     * 把一个对象转换成json字符串，默认采用精简模式
+     * 把一个对象转换成json字符串,默认采用精简模式
      *
      * @param obj
      * @return
@@ -112,13 +108,13 @@ public class JSONUtilsV1 {
     }
 
     /**
-     * 解析json字符串，该json字符串符合如下格式：<br/>
+     * 解析json字符串,该json字符串符合如下格式：<br/>
      * [{key:value}]<br/>
      * 比如：[{\"id\":\"123456\",\"name\":\"张三\"}, {\"id\":\"123457\",\"name\":\"李四\"}]<br/>
      *
      * @param json
      * @return ArrayList<Map < String, Object>>
-     * @throws Exception，如果解析错误
+     * @throws Exception, 如果解析错误
      */
     public static ArrayList<Map<String, Object>> parseJSON(String json) throws Exception {
         if (json == null || json.length() == 0) {
@@ -130,13 +126,13 @@ public class JSONUtilsV1 {
     }
 
     /**
-     * 解析json字符串，该json字符串符合如下格式：<br/>
+     * 解析json字符串,该json字符串符合如下格式：<br/>
      * {key:value}<br/>
      * 比如：{\"id\":\"123456\",\"name\":\"张三\",\"borther\":[\"李四\",\"王五\"]}<br/>
      *
      * @param json
      * @return Map<String, Object>
-     * @throws Exception，如果解析错误
+     * @throws Exception, 如果解析错误
      */
     public static Map<String, Object> parseJSON2Map(String json) {
         if (json == null || json.length() == 0) {
@@ -202,5 +198,4 @@ public class JSONUtilsV1 {
         }
         return list;
     }
-
 }

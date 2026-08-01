@@ -8,8 +8,9 @@ public class CheckEmail {
         String regex = "\\w+@\\w+(\\.\\w+)+";
         Pattern p = Pattern.compile(regex);
         Matcher m = p.matcher(mail);
-        return  m.group();
+        return m.group();
     }
+
     public static boolean isEmail(String email) {
         //判断是否为空邮箱
         int k = 0;
