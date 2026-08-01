@@ -69,7 +69,7 @@
         <!--模块_start-->
         <dependency>
             <groupId>com.mbp.common</groupId>
-            <artifactId>res</artifactId>
+            <artifactId>error</artifactId>
         </dependency>
         <!--模块_start-->
 
