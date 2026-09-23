@@ -18,17 +18,18 @@ import org.apache.http.util.EntityUtils;
 import java.nio.charset.StandardCharsets;
 
 public class HttpManager {
-    private static final PoolingHttpClientConnectionManager cm;
-    private static final RequestConfig conf;
+    private static final PoolingHttpClientConnectionManager poolingHttpClientConnectionManager;
+
+    private static final RequestConfig requestConfig;
 
     static {
         try {
-            cm = new PoolingHttpClientConnectionManager();
+            poolingHttpClientConnectionManager = new PoolingHttpClientConnectionManager();
             // Increase max total connection to 200
-            cm.setMaxTotal(200);
+            poolingHttpClientConnectionManager.setMaxTotal(200);
             // Increase default max connection per route to 20
-            cm.setDefaultMaxPerRoute(20);
-            conf = RequestConfig
+            poolingHttpClientConnectionManager.setDefaultMaxPerRoute(20);
+            requestConfig = RequestConfig
                     .custom()
                     .setConnectTimeout(5000)
                     .setSocketTimeout(60000)
@@ -44,61 +45,61 @@ public class HttpManager {
                 new UsernamePasswordCredentials(userName, password));
         return HttpClients
                 .custom()
-                .setConnectionManager(cm)
+                .setConnectionManager(poolingHttpClientConnectionManager)
                 .setDefaultCredentialsProvider(credentialsProvider)
-                .setDefaultRequestConfig(conf)
+                .setDefaultRequestConfig(requestConfig)
                 .build();
     }
 
     public static HttpClient getClient() {
         return HttpClients
                 .custom()
-                .setConnectionManager(cm)
-                .setDefaultRequestConfig(conf)
+                .setConnectionManager(poolingHttpClientConnectionManager)
+                .setDefaultRequestConfig(requestConfig)
                 .build();
     }
 
-    public static String post(HttpPost post) throws Exception {
-        HttpResponse httpResponse = doPost(post);
-        return EntityUtils.toString(httpResponse.getEntity(), StandardCharsets.UTF_8);
+    public static String post(HttpPost httpPost) throws Exception {
+        HttpResponse response = doPost(httpPost);
+        return EntityUtils.toString(response.getEntity(), StandardCharsets.UTF_8);
     }
 
-    public static String get(HttpGet get) throws Exception {
-        HttpResponse httpResponse = doGet(get);
-        return EntityUtils.toString(httpResponse.getEntity(), StandardCharsets.UTF_8);
+    public static String get(HttpGet httpGet) throws Exception {
+        HttpResponse response = doGet(httpGet);
+        return EntityUtils.toString(response.getEntity(), StandardCharsets.UTF_8);
     }
 
-    public static String delete(HttpDelete delete) throws Exception {
-        HttpResponse httpResponse = doDelete(delete);
-        return EntityUtils.toString(httpResponse.getEntity(), StandardCharsets.UTF_8);
+    public static String delete(HttpDelete httpDelete) throws Exception {
+        HttpResponse response = doDelete(httpDelete);
+        return EntityUtils.toString(response.getEntity(), StandardCharsets.UTF_8);
     }
 
-    public static String put(HttpPut put) throws Exception {
-        HttpResponse httpResponse = doPut(put);
-        return EntityUtils.toString(httpResponse.getEntity(), StandardCharsets.UTF_8);
+    public static String put(HttpPut httpPut) throws Exception {
+        HttpResponse response = doPut(httpPut);
+        return EntityUtils.toString(response.getEntity(), StandardCharsets.UTF_8);
     }
 
-    public static HttpResponse doPost(HttpPost post) throws Exception {
-        HttpClient httpClient = HttpManager.getClient();
-        HttpResponse httpResponse = httpClient.execute(post);
-        return httpResponse;
-    }
-
-    public static HttpResponse doGet(HttpGet get) throws Exception {
+    public static HttpResponse doPost(HttpPost httpPost) throws Exception {
         HttpClient client = HttpManager.getClient();
-        HttpResponse httpResponse = client.execute(get);
-        return httpResponse;
+        HttpResponse response = client.execute(httpPost);
+        return response;
     }
 
-    public static HttpResponse doDelete(HttpDelete delete) throws Exception {
+    public static HttpResponse doGet(HttpGet httpGet) throws Exception {
         HttpClient client = HttpManager.getClient();
-        HttpResponse httpResponse = client.execute(delete);
-        return httpResponse;
+        HttpResponse response = client.execute(httpGet);
+        return response;
     }
 
-    public static HttpResponse doPut(HttpPut put) throws Exception {
+    public static HttpResponse doDelete(HttpDelete httpDelete) throws Exception {
         HttpClient client = HttpManager.getClient();
-        HttpResponse httpResponse = client.execute(put);
-        return httpResponse;
+        HttpResponse response = client.execute(httpDelete);
+        return response;
+    }
+
+    public static HttpResponse doPut(HttpPut httpPut) throws Exception {
+        HttpClient client = HttpManager.getClient();
+        HttpResponse response = client.execute(httpPut);
+        return response;
     }
 }

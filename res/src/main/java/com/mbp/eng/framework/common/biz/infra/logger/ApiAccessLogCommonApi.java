@@ -17,7 +17,7 @@ public interface ApiAccessLogCommonApi {
     void createApiAccessLog(@Valid ApiAccessLogCreateReqDTO createDTO);
 
     /**
-     * 【异步】创建 API 访问日志
+     * [异步]创建 API 访问日志
      *
      * @param createDTO 访问日志 DTO
      */

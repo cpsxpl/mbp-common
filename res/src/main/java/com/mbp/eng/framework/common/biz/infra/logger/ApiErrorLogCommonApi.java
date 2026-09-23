@@ -17,7 +17,7 @@ public interface ApiErrorLogCommonApi {
     void createApiErrorLog(@Valid ApiErrorLogCreateReqDTO createDTO);
 
     /**
-     * 【异步】创建 API 异常日志
+     * [异步]创建 API 异常日志
      *
      * @param createDTO 异常日志 DTO
      */

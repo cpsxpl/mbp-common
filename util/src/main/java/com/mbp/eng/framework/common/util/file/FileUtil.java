@@ -1,6 +1,8 @@
 package com.mbp.eng.framework.common.util.file;
 
+import cn.hutool.core.util.IdUtil;
 import com.google.common.io.ByteStreams;
+import lombok.SneakyThrows;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -53,14 +55,14 @@ public class FileUtil {
 
             docBase = path.substring(0, path.indexOf("WEB-INF"));
         } catch (Exception e) {
-            throw new RuntimeException("获取应用路径时发生错误！", e);
+            throw new RuntimeException("获取应用路径时发生错误!", e);
         }
 
         return docBase;
     }
 
     /**
-     * 替换文件路径的分隔符,以适应不同的操作系统,window："\",Linux：“/”
+     * 替换文件路径的分隔符,以适应不同的操作系统,window:"\",Linux:“/”
      *
      * @param dir
      * @return
@@ -70,10 +72,10 @@ public class FileUtil {
     }
 
     /**
-     * 替换文件路径的分隔符,以适应不同的操作系统,window："\",Linux：“/”
+     * 替换文件路径的分隔符,以适应不同的操作系统,window:"\",Linux:“/”
      *
      * @param dir
-     * @param isFillSep 如果路径的末尾没有路径分隔符,是否补充路径分隔符,比如：补充前为：d:\dir,补充后为d:\dir\
+     * @param isFillSep 如果路径的末尾没有路径分隔符,是否补充路径分隔符,比如:补充前为:d:\dir,补充后为d:\dir\
      * @return
      */
     public static String handleDir(String dir, boolean isFillSep) {
@@ -99,7 +101,7 @@ public class FileUtil {
     /**
      * 加载properties文件
      *
-     * @param path 类路径,比如：xx/xx/xx.properties,或者文件路径,比如：d:/file/xx.properties
+     * @param path 类路径,比如:xx/xx/xx.properties,或者文件路径,比如:d:/file/xx.properties
      * @return
      */
     public static Properties loadProperties(String path) {
@@ -222,5 +224,50 @@ public class FileUtil {
             e.printStackTrace();
             throw new RuntimeException("inputStreamToByte error");
         }
+    }
+
+    /**
+     * 创建临时文件
+     * 该文件会在 JVM 退出时,进行删除
+     *
+     * @param data 文件内容
+     * @return 文件
+     */
+    @SneakyThrows
+    public static File createTempFile(String data) {
+        File file = createTempFile();
+        // 写入内容
+        cn.hutool.core.io.FileUtil.writeUtf8String(data, file);
+        return file;
+    }
+
+    /**
+     * 创建临时文件
+     * 该文件会在 JVM 退出时,进行删除
+     *
+     * @param data 文件内容
+     * @return 文件
+     */
+    @SneakyThrows
+    public static File createTempFile(byte[] data) {
+        File file = createTempFile();
+        // 写入内容
+        cn.hutool.core.io.FileUtil.writeBytes(data, file);
+        return file;
+    }
+
+    /**
+     * 创建临时文件,无内容
+     * 该文件会在 JVM 退出时,进行删除
+     *
+     * @return 文件
+     */
+    @SneakyThrows
+    public static File createTempFile() {
+        // 创建文件,通过 UUID 保证唯一
+        File file = File.createTempFile(IdUtil.simpleUUID(), null);
+        // 标记 JVM 退出时,自动删除
+        file.deleteOnExit();
+        return file;
     }
 }

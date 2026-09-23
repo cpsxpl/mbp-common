@@ -36,7 +36,7 @@
         <maven.docencoding>UTF-8</maven.docencoding>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <!--#####################华丽的分割线_end#######################-->
-        <spring.boot.version>2.7.3</spring.boot.version>
+        <spring.boot.version>2.7.18</spring.boot.version>
         <springdoc.version>1.8.0</springdoc.version>
         <aspectj.version>1.9.7</aspectj.version>
         <jakarta-servlet.version>4.0.4</jakarta-servlet.version>

@@ -17,7 +17,7 @@ public interface OperateLogCommonApi {
     void createOperateLog(@Valid OperateLogCreateReqDTO createReqDTO);
 
     /**
-     * 【异步】创建操作日志
+     * [异步]创建操作日志
      *
      * @param createReqDTO 请求
      */

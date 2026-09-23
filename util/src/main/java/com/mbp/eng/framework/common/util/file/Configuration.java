@@ -1,6 +1,6 @@
 package com.mbp.eng.framework.common.util.file;
 
-import com.mbp.eng.framework.common.utils.IPUtil;
+import com.mbp.eng.framework.common.util.ip.IPToolUtils;
 import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -42,7 +42,7 @@ public class Configuration {
                 String propName = enumeration.nextElement().toString();
                 String value = this.properties.getProperty(propName);
                 if (value != null && value.contains("$replace_local_ip")) {
-                    value = value.replaceAll("\\$replace_local_ip", IPUtil.getIP());
+                    value = value.replaceAll("\\$replace_local_ip", IPToolUtils.getIP());
                     this.properties.setProperty(propName, value);
                 }
             }

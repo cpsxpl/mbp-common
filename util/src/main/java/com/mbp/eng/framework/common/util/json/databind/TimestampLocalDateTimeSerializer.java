@@ -30,7 +30,7 @@ public class TimestampLocalDateTimeSerializer extends JsonSerializer<LocalDateTi
 
     @Override
     public void serialize(LocalDateTime value, JsonGenerator gen, SerializerProvider serializers) throws IOException {
-        // 情况一：有 JsonFormat 自定义注解,则使用它。
+        // 情况一:有 JsonFormat 自定义注解,则使用它.
         String fieldName = gen.getOutputContext().getCurrentName();
         if (fieldName != null) {
             Object currentValue = gen.getOutputContext().getCurrentValue();
@@ -38,6 +38,7 @@ public class TimestampLocalDateTimeSerializer extends JsonSerializer<LocalDateTi
                 Class<?> clazz = currentValue.getClass();
                 Map<String, Field> fieldMap = FIELD_CACHE.computeIfAbsent(clazz, this::buildFieldMap);
                 Field field = fieldMap.get(fieldName);
+                // 进一步修复
                 if (field != null && field.isAnnotationPresent(JsonFormat.class)) {
                     JsonFormat jsonFormat = field.getAnnotation(JsonFormat.class);
                     try {
@@ -52,12 +53,12 @@ public class TimestampLocalDateTimeSerializer extends JsonSerializer<LocalDateTi
             }
         }
 
-        // 情况二：默认将 LocalDateTime 对象,转换为 Long 时间戳
+        // 情况二:默认将 LocalDateTime 对象,转换为 Long 时间戳
         gen.writeNumber(value.atZone(ZoneId.systemDefault()).toInstant().toEpochMilli());
     }
 
     /**
-     * 构建字段映射（缓存）
+     * 构建字段映射(缓存）
      *
      * @param clazz 类
      * @return 字段映射

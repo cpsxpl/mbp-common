@@ -126,7 +126,7 @@ public class JsonUtils {
     /**
      * 将字符串解析成指定类型的对象
      * 使用 {@link #parseObject(String, Class)} 时,在@JsonTypeInfo(use = JsonTypeInfo.Id.CLASS) 的场景下,
-     * 如果 text 没有 class 属性,则会报错。此时,使用这个方法,可以解决。
+     * 如果 text 没有 class 属性,则会报错.此时,使用这个方法,可以解决.
      *
      * @param text  字符串
      * @param clazz 类型
@@ -281,7 +281,7 @@ public class JsonUtils {
      * <p>
      * 避免先转 jsonString 再 parseObject 的性能损耗
      *
-     * @param obj   源对象（可以是 Map、POJO 等）
+     * @param obj   源对象(可以是 Map、POJO 等)
      * @param clazz 目标类型
      * @return 转换后的对象
      */
@@ -296,7 +296,7 @@ public class JsonUtils {
     }
 
     /**
-     * 将 Object 转换为目标类型（支持泛型）
+     * 将 Object 转换为目标类型(支持泛型)
      *
      * @param obj           源对象
      * @param typeReference 目标类型引用
@@ -314,7 +314,7 @@ public class JsonUtils {
      * <p>
      * 避免先转 jsonString 再 parseArray 的性能损耗
      *
-     * @param obj   源对象（可以是 List、数组等）
+     * @param obj   源对象(可以是 List、数组等)
      * @param clazz 目标元素类型
      * @return 转换后的 List
      */
